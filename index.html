@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script type="module">
+
+  import {httpService} from './http.service.js';
+
+  httpService().setJwt('examplejwttttttt');
+
+  //using http://dummy.restapiexample.com/ dummy api
+  httpService()
+    .get('http://dummy.restapiexample.com/api/v1/employees')
+    .then(res => res.json())
+    .then(employees => console.log(employees));
+
+
+  //using https://reqres.in/ dummy api
+  httpService()
+  .get('https://reqres.in/api/users?page=2')
+  .then(res => res.json())
+  .then(users => console.log(users));
+
+
+  let newPerson = 	{"name":"test","salary":"123","age":"23"};
+  httpService().post('http://dummy.restapiexample.com/api/v1/create', newPerson);
+
+</script>
+<body>
+  Ejemplo para Adri el lechugas.
+</body>
+</html>
